@@ -3,7 +3,7 @@ version: '3.9'
 services:
 
   qualinka-ms-spring-config-server:
-    image: abesesr/qualinka-ms:develop-spring-cloud-config-server
+    image: abesesr/qualinka-ms:${VERSION}-spring-cloud-config-server
     container_name: qualinka-ms-spring-config-server
     expose:
       - 8888
@@ -22,7 +22,7 @@ services:
       - "com.centurylinklabs.watchtower.scope=qualinka-ms-watchtower-scope"
 
   qualinka-ms-eureka-naming-server:
-    image: abesesr/qualinka-ms:develop-eureka-naming-server
+    image: abesesr/qualinka-ms:${VERSION}-eureka-naming-server
     container_name: qualinka-ms-eureka-naming-server
     ports:
       - '8761:8761'
@@ -41,7 +41,7 @@ services:
       - "com.centurylinklabs.watchtower.scope=qualinka-ms-watchtower-scope"
 
   qualinka-ms-api-gateway:
-    image: abesesr/qualinka-ms:develop-api-gateway
+    image: abesesr/qualinka-ms:${VERSION}-api-gateway
     container_name: qualinka-ms-api-gateway
     ports:
       - '8765:8765'
@@ -70,7 +70,7 @@ services:
       - "com.centurylinklabs.watchtower.scope=qualinka-ms-watchtower-scope"
 
   qualinka-ms-find-ra-idref:
-    image: abesesr/qualinka-ms:develop-find-ra-idref
+    image: abesesr/qualinka-ms:${VERSION}-find-ra-idref
     container_name: qualinka-ms-find-ra-idref
     expose:
       - 8780
@@ -100,7 +100,7 @@ services:
       - "com.centurylinklabs.watchtower.scope=qualinka-ms-watchtower-scope"
 
   qualinka-ms-find-nonlinked-rc-sudoc:
-    image: abesesr/qualinka-ms:develop-find-nonlinked-rc-sudoc
+    image: abesesr/qualinka-ms:${VERSION}-find-nonlinked-rc-sudoc
     container_name: qualinka-ms-find-nonlinked-rc-sudoc
     expose:
       - 8781
@@ -131,7 +131,7 @@ services:
       - "com.centurylinklabs.watchtower.scope=qualinka-ms-watchtower-scope"
 
   qualinka-ms-linkedrc:
-    image: abesesr/qualinka-ms:develop-linked_rc_idref_sudoc
+    image: abesesr/qualinka-ms:${VERSION}-linked_rc_idref_sudoc
     container_name: qualinka-ms-linkedrc
     expose:
       - 8782
@@ -160,7 +160,7 @@ services:
       - "com.centurylinklabs.watchtower.scope=qualinka-ms-watchtower-scope"
 
   qualinka-ms-attrra:
-    image: abesesr/qualinka-ms:develop-attrra
+    image: abesesr/qualinka-ms:${VERSION}-attrra
     container_name: qualinka-ms-attrra
     expose:
       - 8783
@@ -190,7 +190,7 @@ services:
       - "com.centurylinklabs.watchtower.scope=qualinka-ms-watchtower-scope"
 
   qualinka-ms-attrrc:
-    image: abesesr/qualinka-ms:develop-attrrc
+    image: abesesr/qualinka-ms:${VERSION}-attrrc
     container_name: qualinka-ms-attrrc
     expose:
       - 8784
@@ -246,6 +246,7 @@ services:
 
   qualinka-ms-zipkin-server:
     image: openzipkin/zipkin:2.23
+    container_name: qualinka-ms-zipkin-server
     ports:
       - "9411:9411"
     restart: unless-stopped
