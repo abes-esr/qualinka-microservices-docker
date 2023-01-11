@@ -3,7 +3,7 @@ version: '3.9'
 services:
 
   qualinka-ms-spring-config-server:
-    image: abesesr/qualinka-ms:${VERSION}-spring-cloud-config-server
+    image: abesesr/qualinka-ms:${QUALINKA_VERSION}-spring-cloud-config-server
     container_name: qualinka-ms-spring-config-server
     expose:
       - 8888
@@ -22,7 +22,7 @@ services:
       - "com.centurylinklabs.watchtower.scope=qualinka-ms-watchtower-scope"
 
   qualinka-ms-eureka-naming-server:
-    image: abesesr/qualinka-ms:${VERSION}-eureka-naming-server
+    image: abesesr/qualinka-ms:${QUALINKA_VERSION}-eureka-naming-server
     container_name: qualinka-ms-eureka-naming-server
     ports:
       - '8761:8761'
@@ -41,7 +41,7 @@ services:
       - "com.centurylinklabs.watchtower.scope=qualinka-ms-watchtower-scope"
 
   qualinka-ms-api-gateway:
-    image: abesesr/qualinka-ms:${VERSION}-api-gateway
+    image: abesesr/qualinka-ms:${QUALINKA_VERSION}-api-gateway
     container_name: qualinka-ms-api-gateway
     ports:
       - '8765:8765'
@@ -70,7 +70,7 @@ services:
       - "com.centurylinklabs.watchtower.scope=qualinka-ms-watchtower-scope"
 
   qualinka-ms-find-ra-idref:
-    image: abesesr/qualinka-ms:${VERSION}-find-ra-idref
+    image: abesesr/qualinka-ms:${QUALINKA_VERSION}-find-ra-idref
     container_name: qualinka-ms-find-ra-idref
     expose:
       - 8780
@@ -84,7 +84,7 @@ services:
       SPRING.CLOUD.CONFIG.PROFILE: localhost
       EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://qualinka-ms-eureka-naming-server:8761/eureka
       SPRING.ZIPKIN.BASEURL: http://qualinka-ms-zipkin-server:9411/
-      JASYPT.ENCRYPTOR.PASSWORD: ${MASTER_PASSWORD}
+      JASYPT.ENCRYPTOR.PASSWORD: ${QUALINKA_JASYPT_MASTER_PASSWORD}
     restart: unless-stopped
     mem_limit: ${MEM_LIMIT}
     networks:
@@ -100,7 +100,7 @@ services:
       - "com.centurylinklabs.watchtower.scope=qualinka-ms-watchtower-scope"
 
   qualinka-ms-find-nonlinked-rc-sudoc:
-    image: abesesr/qualinka-ms:${VERSION}-find-nonlinked-rc-sudoc
+    image: abesesr/qualinka-ms:${QUALINKA_VERSION}-find-nonlinked-rc-sudoc
     container_name: qualinka-ms-find-nonlinked-rc-sudoc
     expose:
       - 8781
@@ -115,7 +115,7 @@ services:
       SPRING.CLOUD.CONFIG.PROFILE: localhost
       EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://qualinka-ms-eureka-naming-server:8761/eureka
       SPRING.ZIPKIN.BASEURL: http://qualinka-ms-zipkin-server:9411/
-      JASYPT.ENCRYPTOR.PASSWORD: ${MASTER_PASSWORD}
+      JASYPT.ENCRYPTOR.PASSWORD: ${QUALINKA_JASYPT_MASTER_PASSWORD}
     restart: unless-stopped
     mem_limit: ${MEM_LIMIT}
     networks:
@@ -131,7 +131,7 @@ services:
       - "com.centurylinklabs.watchtower.scope=qualinka-ms-watchtower-scope"
 
   qualinka-ms-linkedrc:
-    image: abesesr/qualinka-ms:${VERSION}-linked_rc_idref_sudoc
+    image: abesesr/qualinka-ms:${QUALINKA_VERSION}-linked_rc_idref_sudoc
     container_name: qualinka-ms-linkedrc
     expose:
       - 8782
@@ -145,7 +145,7 @@ services:
       SPRING.CLOUD.CONFIG.PROFILE: localhost
       EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://qualinka-ms-eureka-naming-server:8761/eureka
       SPRING.ZIPKIN.BASEURL: http://qualinka-ms-zipkin-server:9411/
-      JASYPT.ENCRYPTOR.PASSWORD: ${MASTER_PASSWORD}
+      JASYPT.ENCRYPTOR.PASSWORD: ${QUALINKA_JASYPT_MASTER_PASSWORD}
     restart: unless-stopped
     networks:
       - microservice
@@ -160,7 +160,7 @@ services:
       - "com.centurylinklabs.watchtower.scope=qualinka-ms-watchtower-scope"
 
   qualinka-ms-attrra:
-    image: abesesr/qualinka-ms:${VERSION}-attrra
+    image: abesesr/qualinka-ms:${QUALINKA_VERSION}-attrra
     container_name: qualinka-ms-attrra
     expose:
       - 8783
@@ -174,7 +174,7 @@ services:
       SPRING.CLOUD.CONFIG.PROFILE: localhost
       EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://qualinka-ms-eureka-naming-server:8761/eureka
       SPRING.ZIPKIN.BASEURL: http://qualinka-ms-zipkin-server:9411/
-      JASYPT.ENCRYPTOR.PASSWORD: ${MASTER_PASSWORD}
+      JASYPT.ENCRYPTOR.PASSWORD: ${QUALINKA_JASYPT_MASTER_PASSWORD}
     restart: unless-stopped
     mem_limit: ${MEM_LIMIT}
     networks:
@@ -190,7 +190,7 @@ services:
       - "com.centurylinklabs.watchtower.scope=qualinka-ms-watchtower-scope"
 
   qualinka-ms-attrrc:
-    image: abesesr/qualinka-ms:${VERSION}-attrrc
+    image: abesesr/qualinka-ms:${QUALINKA_VERSION}-attrrc
     container_name: qualinka-ms-attrrc
     expose:
       - 8784
@@ -204,7 +204,7 @@ services:
       SPRING.CLOUD.CONFIG.PROFILE: localhost
       EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://qualinka-ms-eureka-naming-server:8761/eureka
       SPRING.ZIPKIN.BASEURL: http://qualinka-ms-zipkin-server:9411/
-      JASYPT.ENCRYPTOR.PASSWORD: ${MASTER_PASSWORD}
+      JASYPT.ENCRYPTOR.PASSWORD: ${QUALINKA_JASYPT_MASTER_PASSWORD}
     restart: unless-stopped
     mem_limit: ${MEM_LIMIT}
     networks:
