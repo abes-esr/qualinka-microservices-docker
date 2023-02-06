@@ -147,6 +147,7 @@ services:
       SPRING.ZIPKIN.BASEURL: http://qualinka-ms-zipkin-server:9411/
       JASYPT.ENCRYPTOR.PASSWORD: ${QUALINKA_JASYPT_MASTER_PASSWORD}
     restart: unless-stopped
+    mem_limit: ${MEM_LIMIT}
     networks:
       - microservice
     labels:
