@@ -30,7 +30,7 @@ services:
       - '8761:8761'
     restart: unless-stopped
     mem_limit: ${MEM_LIMIT}
-    : ${MEM_LIMIT}
+    memswap_limit: ${MEM_LIMIT}
     cpus: ${CPU_LIMIT}    
     networks:
       - microservice
